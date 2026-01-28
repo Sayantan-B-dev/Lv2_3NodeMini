@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>3 Node Mini Apps</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>3 Node Mini Projects</h1>
+
+    <section>
+      <h2>ASCII Art</h2>
+      <input id="asciiText" placeholder="Enter text" />
+      <button onclick="ascii()">Generate</button>
+      <pre id="asciiOut" class="ascii-output"></pre>
+    </section>
+
+    <section>
+      <h2>Random Joke</h2>
+      <button onclick="joke()">Get Joke</button>
+      <p id="jokeOut"></p>
+    </section>
+
+    <section>
+      <h2>Language Detector</h2>
+      <input id="langText" placeholder="Enter text" />
+      <button onclick="language()">Detect</button>
+      <p id="langOut"></p>
+    </section>
+  </div>
+  <script src="app.js"></script>
+  </body>
+</html>

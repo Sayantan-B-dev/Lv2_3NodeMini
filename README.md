@@ -1,75 +1,119 @@
-# 3NodeMini
-There are 3 tiny node projects. This is for learning purposes.
-This repository contains three different Node.js utilities that you can run directly from the terminal. Each folder in this repo has a specific utility with a JavaScript file (.js) for functionality and a corresponding package.json file for managing dependencies.
+### README.md
 
-## Contents
------------------
-1. Project 1: ASCII Art Generator
-2. Project 2: Random Joke Generator
-3. Project 3: Language Detector
+This project is a small but well-structured **Node.js + Express mini-app suite** with a single backend and a browser-based frontend. It exposes three services—ASCII Art generation, Random Jokes, and Language Detection—via clean APIs and a modern UI.
 
-## Prerequisites
--------------
-Make sure you have Node.js installed on your system. You can check if Node.js is installed by running the following command in your terminal:
-$ node -v
+---
 
-## Installation
--------------
-1. Clone the repository to your local machine:
-   $ git clone https://github.com/Sayantan-B-dev/Lv2_3NodeMini.git
+### Requirements
 
-2. Navigate to each project folder and install the required dependencies using npm:
-   $ cd 'project-folder'
-   $ npm install
+* Node.js **v18+** (recommended)
+* npm (comes with Node)
 
-## Folder Structure
-----------------
-The repo is organized into three folders, each with a separate utility:
+Check installation:
 
-1. ascii-art-generator/
-    - ascii-art-generator.js
-    - package.json
-    
-2. random-joke-generator/
-    - random-joke-generator.js
-    - package.json
-    
-3. language-detector/
-    - language-detector.js
-    - package.json
+```bash
+node -v
+npm -v
+```
 
-## Project 1: ASCII Art Generator
-------------------------------
-This utility takes a text input and converts it into ASCII art.
+---
 
-### How it works:
-- Make sure your cd directs to the correct folder where the .js file is(/01_AsciiArt/).
-- After installing dependencies, you can run the script by using the terminal:
-- $ node index.js 'Your text hoes here'
-- The output will be displayed in the terminal as ASCII art.
+### Installation (do this first)
 
-## Project 2: Random Joke Generator
----------------------------------
-This utility fetches a random joke (Dad joke, general joke, or Chinese joke) and displays it.
+From the **root folder**:
 
-### How it works:
-- Make sure your cd directs to the correct folder where the .js file is(/02_GiveMeAJoke/).
-- After installing dependencies, you can run the script by passing a text argument:
-- $ node index.js    or     $ node --no-deprecation index.js
-- You will get a random joke printed on the terminal.
+```bash
+npm install
+```
 
-## Project 3: Language Detector
-----------------------------
-This utility detects the language of a given text through the command line.
+This installs all dependencies required by the backend and services.
 
-### How it works:
-- Make sure your cd directs to the correct folder where the .js file is(/03_LangDitector/).
-- After installing dependencies, you can run the script by passing a text argument:
-- $ node index.js "Your text to detect language"
-- The script will detect the language and print it in the terminal.
+---
 
-## Usage
------
-1. Clone the repository to your local machine.
-2. Install the required dependencies for each project using npm.
-3. Navigate to the respective project folder and run the script as per the instructions above.
+### Running the app
+
+Start the server:
+
+```bash
+node server.js
+```
+
+You should see:
+
+```
+🚀 Server running on http://localhost:3000
+```
+
+Now open your browser and go to:
+
+```
+http://localhost:3000
+```
+
+---
+
+![](./sample.png)
+
+### What’s included
+
+**1. ASCII Art Generator**
+
+* Converts text into bold, readable ASCII art
+* Uses improved Figlet settings and proper monospace rendering
+* API: `POST /api/ascii`
+
+**2. Random Joke Generator**
+
+* Fetches dad jokes asynchronously
+* Clean JSON response with metadata
+* API: `GET /api/joke`
+
+**3. Language Detector**
+
+* Detects language from natural sentences
+* Handles unclear input gracefully with hints
+* API: `POST /api/language`
+
+---
+
+### Project structure (overview)
+
+```
+├── server.js              # Express server & API routes
+├── services/              # Pure logic (no Express)
+│   ├── asciiArt.js
+│   ├── jokes.js
+│   └── language.js
+├── public/                # Frontend (served statically)
+│   ├── index.html
+│   ├── app.js
+│   └── styles.css
+├── README.md
+└── project-tree.txt
+```
+
+---
+
+### Why this structure matters
+
+* Clear **service layer separation**
+* Easy to extend (new APIs, tests, CLI reuse)
+* Frontend and backend cleanly decoupled
+* Real-world Express project layout (not a toy setup)
+
+---
+
+### Notes
+
+* No database required
+* No environment variables needed
+* Works fully in the browser (not terminal-based)
+
+If you want, this can be extended with:
+
+* Font selector for ASCII art
+* Caching for jokes
+* TypeScript conversion
+* API documentation (OpenAPI)
+
+Just say the word.
